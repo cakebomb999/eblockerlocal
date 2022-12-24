@@ -68,9 +68,13 @@
     <md-icon ng-show="entry.isOnline" class="content-eb-orange" md-svg-src="/img/icons/ic_internet_connected_black_48px.svg" aria-label="{{'ADMINCONSOLE.DEVICES_LIST.TOOLTIP.ONLINE' | translate}}">
         <md-tooltip md-delay="300">{{'ADMINCONSOLE.DEVICES_LIST.TOOLTIP.ONLINE' | translate}}</md-tooltip>
     </md-icon>
-    <md-icon ng-hide="entry.isOnline" class="eb-table-icon-deactivated" md-svg-src="/img/icons/ic_internet_disconnected_black_48px.svg" aria-label="{{'ADMINCONSOLE.DEVICES_LIST.TOOLTIP.OFFLINE' | translate}}">
+    <div ng-hide="entry.isOnline" class="eb-table-icon-deactivated" aria-label="{{'ADMINCONSOLE.DEVICES_LIST.TOOLTIP.OFFLINE' | translate}}">
+        <div>Last seen:</div>
+        <div>{{entry.lastSeen}}</div>
         <md-tooltip md-delay="300">{{'ADMINCONSOLE.DEVICES_LIST.TOOLTIP.OFFLINE' | translate}}</md-tooltip>
-    </md-icon>
+    </div>
+      
+      
 
     <!-- SSL ICON -->
     <md-icon ng-show="vm.templateCallback.sslEnabled && entry.sslEnabled && (entry.enabled || entry.paused) && !entry.isEblocker && !entry.isGateway" ng-class="{'content-eb-orange': !entry.paused}"  md-svg-src="/img/icons/ic_lock_black.svg" aria-label="Is device paused">

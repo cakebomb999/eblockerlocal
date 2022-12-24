@@ -55,6 +55,7 @@ public class Device extends ModelObject {
     private boolean areDeviceMessagesSettingsDefault = true;
     @JsonProperty
     private boolean isOnline = false;
+    private String lastSeen;
     private boolean isGateway = false;
     private boolean isEblocker = false;
     // About DHCP
@@ -469,5 +470,13 @@ public class Device extends ModelObject {
 
     public void setDomainRecordingEnabled(boolean domainRecordingEnabled) {
         this.domainRecordingEnabled = domainRecordingEnabled;
+    }
+
+    public void setLastSeen(long lastSeen) {
+        this.lastSeen = String.valueOf(lastSeen);
+    }
+
+    public long getLastSeen() {
+        return Long.parseLong(lastSeen);
     }
 }

@@ -67,8 +67,10 @@ public class DeviceOnlineStatusCache {
             if (lastSeen != null) {
                 Instant now = clock.instant();
                 device.setOnline(lastSeen.plusSeconds(deviceOfflineAfterSeconds).isAfter(now));
+                device.setLastSeen(1);
             } else {
                 device.setOnline(false);
+                device.setLastSeen(deviceOfflineAfterSeconds);
             }
         }
     }
